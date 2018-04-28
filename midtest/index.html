@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <!-- 탭에 뜨는 문자 -->
+  <title>My Home</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript">
+  // 엔터눌렀을 때 검색된 페이지로 이동
+  function entergo(obj, ev) {
+    if(ev.keyCode){  // 키속성이 있는 경우만 되게 유무확인
+      if(ev.keyCode == 13){ // 13은 엔터키 코드
+        switch (obj.name) { // value값 읽어서 이동
+          case "google_text":
+            document.location.href = "https://www.google.co.kr/search?q=" + obj.value;
+            break;
+          case "naver_text":
+            document.location.href = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + obj.value;
+            break;
+          case "youtube_text":
+            document.location.href = "https://www.youtube.com/results?search_query=" + obj.value;
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  }
+  function thema_change(obj) {
+    // obj = this
+    var head = document.querySelector('h1');
+    var art = document.getElementById('wrap');
+    switch (obj.value) {
+      case 'basic':
+        art.style.background = '#fff2f7';
+        head.style = 'background-image:url(home_spring.jpg); background-size: contain; background-repeat: no-repeat; background-position: right;';
+        obj.value = 'spring'
+        break;
+      case 'spring':
+      art.style.background = '#e8faff';
+      head.style = 'background-image:url(home_summer.jpg); background-size: contain; background-repeat: no-repeat; background-position: right;';
+        obj.value = 'summer'
+        break;
+      case 'summer':
+      art.style.background = '#fff3e8';
+      head.style = 'background-image:url(home_autumn.jpg); background-size: contain; background-repeat: no-repeat; background-position: right;';
+        obj.value = 'autumn'
+        break;
+      case 'autumn':
+      art.style.background = '#ededed';
+      head.style = 'background-image:url(home_winter.jpg); background-size: contain; background-repeat: no-repeat; background-position: right;';
+        obj.value = 'winter'
+        break;
+      case 'winter':
+      art.style.background = '#FFFFFF';
+      head.style = 'background-image:url(home.jpg); background-size: contain; background-repeat: no-repeat; background-position: right;';
+        obj.value = 'basic'
+        break;
+      default:
+        break;
+    }
+  }
+  </script>
+</head>
+<!-- 본문 -->
+<body>
+  <div id="wrap">
+    <div id="menu">
+      <h1 class="home">
+        <a href="index.html">HomE</a>
+      </h1>
+      <ul>
+        <a href="index.html"><li>검색</li></a>
+        <li></li>
+        <a href="timetable.html"><li>시간표</li></a>
+      </ul>
+    </div>
+    <div>
+      <input type="button" name="SEASONS" class="season_button" value="basic" style="float:right" onclick="javascript:thema_change(this);">
+    </div>
+    <div id="article">
+      <div style="padding-top:30px">
+        <a href="https://www.google.co.kr/?hl=ko"><img id="google_h2" src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google_logo" style="width: 190.4px; height:64.4px;"></a>
+      </div>
+      <div>
+        <input type="text" name="google_text" value='' style="width:300px; font-size:20px; background-color:#FFFFFF" onfocus="this.value='';"
+        onkeypress="javascript:entergo(this, event);">
+      </div>
+      <div style="padding-top:25px">
+        <a href="https://www.naver.com/"><h2 id="naver_h2" style="color:#2db400; font-size:45px; margin:0";>NAVER</h2></a>
+      </div>
+      <div>
+        <input type="text" name="naver_text" value='' style="width:300px; font-size:20px; background-color:#FFFFFF" onfocus="this.value='';"
+        onKeydown="javascript:entergo(this, event);">
+      </div>
+      <div style="padding-top:25px">
+        <a href="https://www.youtube.com/"><h2 id="youtube_h2" style="color:#c00000; font-size:45px; margin:0">YouTube</h2></a>
+      </div>
+      <div>
+        <input type="text" name="youtube_text" value='' style="width:300px; font-size:20px; background-color:#FFFFFF" onfocus="this.value='';"
+        onKeydown="javascript:entergo(this, event);">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

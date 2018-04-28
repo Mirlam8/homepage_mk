@@ -1,0 +1,88 @@
+
+/*  셀렉터 우선순위
+1. 스타일속성
+2. id
+3. class
+4. 태그선택자
+*/
+body{
+  margin: 0;
+}
+a:link,a:visited{
+  text-decoration: none; color:black;
+}
+#wrap{
+  height: auto;
+  width: auto;
+  position: relative;
+}
+/* 목차부분 */
+#menu{
+  display: block;
+  font-size:20px;
+  margin:0;
+  padding:20px;
+}
+#menu h1{
+  font-size:60px;
+  border: 2px solid gray;
+  text-align: center;
+  margin:0;
+  padding:20px;
+  height: 100px;
+  background-image: url(home.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+#menu ul{
+  display: grid;
+  margin: 0;
+  grid-template-columns:1fr 1fr 1fr;
+  font-size:20px;
+  list-style: none;
+  border-bottom:1px solid gray;
+  -webkit-padding-start: 20%;
+  -webkit-padding-end: 20%;
+
+}
+#menu ul a{
+  "background-color:transparent;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  padding: 7px;
+  text-align: center;
+}
+#menu ul a:hover{
+  background-color: #a1d3ff;
+}
+.season_button{
+  width:70px;
+  height:30px;
+  border:2px solid #34495e;
+  background-color: #34495e;
+  margin-right:20px;
+  text-align:center;
+  color: #FFFFFF;
+}
+.season_button:hover{
+  width:70px;
+  height:30px;
+  border:2px solid #34495e;
+  background-color: #FFFFFF;
+  color: #000000;
+  transition:all .5s ease;
+  z-index:1;
+}
+#article{
+  padding-left:25px;
+  text-align: -webkit-center;
+}
+/* 미디어쿼리: 반응형 웹 */
+@media(max-width:450px){
+  #menu ul{
+  display: none;
+  }
+}
